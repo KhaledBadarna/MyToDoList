@@ -5,16 +5,16 @@ function LogIn() {
   return (
     <div class="paperBG">
       <div class="insideDiv">
+        <label>Log In Page</label>
         <img class="loginImg1" src={loginImg} alt=""></img>
-        <from>
-          <label>User Name:</label>
-          <input class="loginInput" placeholder="Name"></input>
-          <label>Password:</label>
-          <input class="loginInput" placeholder="Pass"></input>
+        <form>
+          <input class="loginInput" placeholder="Your Name "></input>
+
+          <input class="loginInput" placeholder="Your Password"></input>
           <br />
           <br />
           <button>Submit</button>
-        </from>
+        </form>
       </div>
     </div>
   );
