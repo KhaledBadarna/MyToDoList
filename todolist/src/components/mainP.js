@@ -1,7 +1,12 @@
 import React, { useState } from "react";
-import { FaTrashAlt, FaRegCheckCircle, FaRegCircle } from "react-icons/fa";
+import {
+  FaTrashAlt,
+  FaCheckCircle,
+  FaPlusSquare,
+  FaDotCircle,
+} from "react-icons/fa";
 function Todolist() {
-  const [todo, setTodo] = useState("");
+  const [todo, setTodo] = useState(" ");
   const [items, setItems] = useState([]);
   const [isDone, setisDone] = useState(false);
 
@@ -11,16 +16,21 @@ function Todolist() {
     setTodo(newValue);
   }
 
-  function handelClick() {
-    setItems(() => {
-      return [...items, todo];
-    });
+  function handelClickAdd() {
+    if (todo !== " ") {
+      setItems(() => {
+        return [...items, todo];
+      });
+    }
     setTodo(" ");
   }
   function checkingTodo() {
     setisDone((prevValue) => {
       return !prevValue;
     });
+  }
+  function checkedItem() {
+    return !isDone;
   }
 
   return (
@@ -31,16 +41,24 @@ function Todolist() {
           class="ToDoinput"
           placeholder=" To Do"
           onChange={handelChange}
+          value={todo}
         ></input>
-        <br />
-        <button type="submit" onClick={handelClick}>
-          Add ToDo
-        </button>
+        <i>
+          <FaPlusSquare type="submit" onClick={handelClickAdd} size="2em" />
+        </i>
+
         <ul className="todolist-ul" onClick={checkingTodo}>
           {items.map((todoItem) => (
             <li className="todolist-il">
-              <FaRegCircle size="1.5em" color="cornflowerblue" />
-              {todoItem} <FaTrashAlt size="1.5em" color="cornflowerblue" />
+              <i onClick={checkedItem}>
+                {isDone ? (
+                  <FaCheckCircle size="1.5em" />
+                ) : (
+                  <FaDotCircle size="1.5em" />
+                )}
+              </i>
+              {todoItem}
+              <FaTrashAlt size="1.5em" onClick={() => alert("clicked")} />
             </li>
           ))}
         </ul>

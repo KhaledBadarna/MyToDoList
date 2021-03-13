@@ -3,7 +3,7 @@ import loginImg from "../login.png";
 
 function LogIn() {
   return (
-    <div class="paperBG">
+    <div class="imgBG">
       <div class="insideDiv">
         <label>Log In Page</label>
         <img class="loginImg1" src={loginImg} alt=""></img>
