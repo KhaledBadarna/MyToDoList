@@ -58,7 +58,7 @@ function SignUp() {
 
   function handelClick() {}
   return (
-    <div class="paperBG">
+    <div class="imgBG">
       <div class="insideDivSignup">
         <label>Sign Up Page</label>
         <form onclick={handelClick}>
